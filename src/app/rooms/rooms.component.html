@@ -32,5 +32,5 @@ Just read the code -->
     <div>
         <button (click)="addRoom()">Add Room</button>
     </div>
-    <app-rooms-list [rooms]="roomList"  (selectedRoom)="roomSelected($event)"></app-rooms-list>
+    <app-rooms-list [rooms]="roomList"  [title]='title' (selectedRoom)="roomSelected($event)"></app-rooms-list>
 </main>

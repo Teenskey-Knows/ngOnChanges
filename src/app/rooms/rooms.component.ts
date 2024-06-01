@@ -80,6 +80,7 @@ export class RoomsComponent implements OnInit{
 
   hotelName: string = "Hotel Kamau";
   numberOfRooms:number = 10;
+  title!: string;
 
   hideRooms:boolean = false;
 
@@ -90,6 +91,7 @@ export class RoomsComponent implements OnInit{
   }
 
   toggle():boolean{
+    this.title = 'My super hotel';
 
     return this.hideRooms = !this.hideRooms;
   }

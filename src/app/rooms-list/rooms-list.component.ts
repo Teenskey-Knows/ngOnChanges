@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { RoomList } from '../rooms/rooms';
 import { CommonModule } from '@angular/common';
 // import { EventEmitter } from 'stream';
@@ -14,10 +14,11 @@ import { EventEmitter } from '@angular/core';
   styleUrl: './rooms-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomsListComponent implements OnInit {
+export class RoomsListComponent implements OnInit, OnChanges {
 
 
   @Input() rooms: RoomList[] = [];
+  @Input() title!: string;
   // Whenever you put an input tag in angular,you're meaning that we should make
   // the above Input as a valid html tag of the same component ( templateUrl: './rooms-list.component.html',)
 
@@ -38,7 +39,14 @@ export class RoomsListComponent implements OnInit {
   }
 
 
-  
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes);
+    if (changes['title']){
+      this.title = changes['title'].currentValue.toUpperCase();
+    }
+
+
+  }
 
   selectRoom(room:RoomList){
     this.selectedRoom.emit(room);
