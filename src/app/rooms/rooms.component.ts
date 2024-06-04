@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Room, RoomList } from './rooms';
 import { CommonModule } from '@angular/common';
 import { RoomsListComponent } from "../rooms-list/rooms-list.component";
@@ -11,12 +11,17 @@ import { Event } from '@angular/router';
     styleUrl: './rooms.component.scss',
     imports: [CommonModule, RoomsListComponent]
 })
-export class RoomsComponent implements OnInit{
+export class RoomsComponent implements OnInit, DoCheck{
  
 
 
 
  roomList: RoomList[] = [];
+
+ ngDoCheck(): void {
+   console.log("On changes is called");
+   
+ }
 
   ngOnInit(): void { 
 
