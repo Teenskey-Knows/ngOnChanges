@@ -19,7 +19,7 @@ export class RoomsComponent implements OnInit, DoCheck{
  roomList: RoomList[] = [];
 
  ngDoCheck(): void {
-   console.log("On changes is called");
+   console.log("Do Check is called");
    
  }
 
