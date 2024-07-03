@@ -3,13 +3,14 @@ import { Room, RoomList } from './rooms';
 import { CommonModule } from '@angular/common';
 import { RoomsListComponent } from "../rooms-list/rooms-list.component";
 import { Event } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
     selector: 'app-rooms',
     standalone: true,
     templateUrl: './rooms.component.html',
     styleUrl: './rooms.component.scss',
-    imports: [CommonModule, RoomsListComponent]
+    imports: [CommonModule, RoomsListComponent,HeaderComponent]
 })
 export class RoomsComponent implements OnInit, DoCheck{
  
